@@ -1,5 +1,6 @@
 // Copyright (c) .NET Foundation and Contributors.  All Rights Reserved.  See LICENSE in the project root for license information.
 #include "THSNN.h"
+#include <iostream>
 
 #include <torch/nn/init.h>
 
@@ -213,6 +214,9 @@ NNModule THSNN_custom_module(const char* name,
     Tensor(*forward)(Tensor),
     NNAnyModule* outAsAnyModule)
 {
+    auto mod1 = new CustomModule(name, forward);
+    auto res1 = new std::shared_ptr<torch::nn::Module>((torch::nn::Module*)mod1);
+    std::cout << "aaa" << (**res1).named_parameters().size() << std::endl;
     CATCH_RETURN_NNModule(
         auto mod = new CustomModule(name, forward);
 

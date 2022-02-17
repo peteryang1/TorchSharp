@@ -10,6 +10,7 @@
       <UseStyleCopAnalyzer>false</UseStyleCopAnalyzer>
       <IsPackable>false</IsPackable>
       <DefineConstants>$(DefineConstants);LIBTORCH_$(LibTorchPackageVersion.Replace('.', '_'));CUDA_$(CudaVersionDot.Replace('.', '_'))</DefineConstants>
+      <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,6 +39,16 @@
           $(PackDependsOn);
           RealPack
       </PackDependsOn>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|x64'">
+    <WarningLevel>1</WarningLevel>
   </PropertyGroup>
 
 

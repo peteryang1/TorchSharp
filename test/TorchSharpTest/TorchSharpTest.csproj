@@ -8,6 +8,7 @@
     <UseStyleCopAnalyzer>false</UseStyleCopAnalyzer>
     <VSTestLogger>trx</VSTestLogger>
     <VSTestResultsDirectory>$(OutputPath)</VSTestResultsDirectory>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
